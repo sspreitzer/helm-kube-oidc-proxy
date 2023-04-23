@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kube-oidc-proxy
-version: 0.0.7
+version: 0.0.8
 description: Helm Chart for kube-oidc-proxy
 keywords:
   - kubernetes
