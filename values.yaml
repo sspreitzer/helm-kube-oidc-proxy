@@ -1,0 +1,37 @@
+oidc:
+  issuer: https://id.example.com/auth/realms/master
+  clientID: kubernetes
+  clientSecret: null
+  usernameClaim: preferred_username
+  groupsClaim: groups
+  usernamePrefix: "oidc:"
+  groupsPrefix: "oidc:"
+  requiredClaims: []
+  # requiredClaims: ["test=yes"]
+
+deployment:
+  image:
+    name: quay.io/jetstack/kube-oidc-proxy
+    pullPolicy: IfNotPresent
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "500m"
+    limits:
+      memory: "128Mi"
+      cpu: "500m"
+
+service:
+  type: ClusterIP
+  annotations: null
+  externalTrafficPolicy: null
+
+ingress:
+  enabled: false
+  annotations: null
+  hosts:
+    - api.kubernetes.example.com
+  tlsSecret: null
