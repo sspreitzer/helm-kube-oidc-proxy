@@ -1,7 +1,6 @@
 oidc:
   issuer: id.example.com/auth/realms/master
   clientID: kubernetes
-  clientSecret: null
   usernameClaim: preferred_username
   groupsClaim: groups
   usernamePrefix: "oidc:"
