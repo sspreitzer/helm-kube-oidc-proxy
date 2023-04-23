@@ -21,8 +21,7 @@ spec:
           command:
             - kube-oidc-proxy
             - --secure-port=443
-            - --tls-cert-file=/etc/oidc/tls/crt.pem
-            - --tls-private-key-file=/etc/oidc/tls/key.pem
+            - --oidc-ca-file=/etc/ssl/certs/ca-certificates.crt
             - "--oidc-issuer-url={{ .Values.oidc.issuer }}"
             - "--oidc-client-id={{ .Values.oidc.clientID }}"
             {{- if .Values.oidc.clientSecret }}
@@ -38,22 +37,9 @@ spec:
             {{- if .Values.verbosity }}
             - "--v={{ .Values.verbosity }}"
             {{- end }}
-          volumeMounts:
-            - name: kube-oidc-proxy-tls
-              mountPath: /etc/oidc/tls
-              readOnly: true
           resources: {{ toYaml .Values.deployment.resources | nindent 12 }}
           ports:
             - name: metrics
               containerPort: 8080
             - name: https
               containerPort: 443
-      volumes:
-        - name: kube-oidc-proxy-tls
-          secret:
-            secretName: "{{ .Release.Name }}-{{ .Chart.Name }}"
-            items:
-              - key: tls.crt
-                path: crt.pem
-              - key: tls.key
-                path: key.pem
