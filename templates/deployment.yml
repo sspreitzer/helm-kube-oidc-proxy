@@ -20,6 +20,7 @@ spec:
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy | quote }}
           command:
             - kube-oidc-proxy
+            - --secure-port=443
             - --oidc-issuer-url="{{ .Values.oidc.issuer }}"
             - --oidc-client-id="{{ .Values.oidc.clientID }}"
             {{- if .Values.oidc.clientSecret }}

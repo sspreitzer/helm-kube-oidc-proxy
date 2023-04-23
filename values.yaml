@@ -1,5 +1,5 @@
 oidc:
-  issuer: https://id.example.com/auth/realms/master
+  issuer: id.example.com/auth/realms/master
   clientID: kubernetes
   clientSecret: null
   usernameClaim: preferred_username
