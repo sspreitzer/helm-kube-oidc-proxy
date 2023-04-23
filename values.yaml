@@ -11,8 +11,8 @@ oidc:
 
 deployment:
   image:
-    name: quay.io/jetstack/kube-oidc-proxy
-    pullPolicy: IfNotPresent
+    name: docker.io/tremolosecurity/kube-oidc-proxy:latest
+    pullPolicy: Always
   replicas: 2
   strategy:
     type: RollingUpdate

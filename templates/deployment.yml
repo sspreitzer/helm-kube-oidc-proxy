@@ -16,7 +16,7 @@ spec:
       serviceAccountName: "{{ .Release.Name }}-{{ .Chart.Name }}"
       containers:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}"
-          image: "{{ .Values.deployment.image.name }}:{{ .Chart.AppVersion }}"
+          image: {{ .Values.deployment.image.name | quote }}
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy | quote }}
           command:
             - kube-oidc-proxy
