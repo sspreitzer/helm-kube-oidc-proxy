@@ -14,6 +14,11 @@ spec:
         app: "{{ .Release.Name }}-{{ .Chart.Name }}"
     spec:
       serviceAccountName: "{{ .Release.Name }}-{{ .Chart.Name }}"
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
       containers:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}"
           image: {{ .Values.deployment.image.name | quote }}
