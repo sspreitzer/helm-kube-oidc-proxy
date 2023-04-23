@@ -19,6 +19,15 @@ spec:
         runAsGroup: 65534
         runAsNonRoot: true
         runAsUser: 65534
+      volumes:
+        - name: kube-oidc-proxy-tls
+          secret:
+            secretName: "{{ .Release.Name }}-{{ .Chart.Name }}"
+            items:
+              - key: tls.crt
+                path: cert.pem
+              - key: tls.key
+                path: key.pem
       containers:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}"
           image: {{ .Values.deployment.image.name | quote }}
@@ -26,6 +35,8 @@ spec:
           command:
             - kube-oidc-proxy
             - --oidc-ca-file=/etc/ssl/certs/ca-certificates.crt
+            - --tls-cert-file=/etc/oidc/tls/cert.pem
+            - --tls-private-key-file=/etc/oidc/tls/key.pem
             - "--oidc-issuer-url={{ .Values.oidc.issuer }}"
             - "--oidc-client-id={{ .Values.oidc.clientID }}"
             - "--oidc-username-claim={{ .Values.oidc.usernameClaim }}"
@@ -56,3 +67,7 @@ spec:
               containerPort: 8080
             - name: https
               containerPort: 6443
+          volumeMounts:
+            - name: kube-oidc-proxy-tls
+              mountPath: /etc/oidc/tls
+              readOnly: true
