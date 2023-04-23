@@ -38,6 +38,18 @@ spec:
             - "--v={{ .Values.verbosity }}"
             {{- end }}
           resources: {{ toYaml .Values.deployment.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: metrics
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: metrics
+          startupProbe:
+            httpGet:
+              path: /ready
+              port: metrics
           ports:
             - name: metrics
               containerPort: 8080
