@@ -13,7 +13,9 @@ spec:
   selector:
     app: "{{ .Release.Name }}-{{ .Chart.Name }}"
   ports:
-  - port: 8080
-    targetPort: metrics
-  - port: 443
-    targetPort: https
+    - name: metrics
+      port: 8080
+      targetPort: metrics
+    - name: https
+      port: 443
+      targetPort: https
