@@ -1,0 +1,19 @@
+apiVersion: v2
+name: kube-oidc-proxy
+version: 0.0.3
+description: Helm Chart for kube-oidc-proxy
+keywords:
+  - kubernetes
+  - oidc
+  - kube-apiserver
+  - authentication
+  - impersonation
+home: https://git.spreitzer.ch/helm/kube-oidc-proxy
+sources:
+  - https://git.spreitzer.ch/helm/kube-oidc-proxy.git
+maintainers:
+  - name: Sascha Spreitzer
+    email: sascha@spreitzer.ch
+    url: https://github.com/sspreitzer
+icon: https://kubernetes.io/images/favicon.png
+appVersion: 0.0.3
