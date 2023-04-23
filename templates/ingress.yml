@@ -23,6 +23,6 @@ spec:
                   name: https
     {{- end }}
   tls:
-    hosts: {{ toJson .Values.ingress.hosts }}
-    secretName: {{ if .Values.ingress.tlsSecret }}{{ .Values.ingress.tlsSecret | quote }}{{ else }}"{{ .Release.Name }}-{{ .Chart.Name }}-tls"{{ end }}
+    - hosts: {{ toJson .Values.ingress.hosts }}
+      secretName: {{ if .Values.ingress.tlsSecret }}{{ .Values.ingress.tlsSecret | quote }}{{ else }}"{{ .Release.Name }}-{{ .Chart.Name }}-tls"{{ end }}
 {{- end }}
