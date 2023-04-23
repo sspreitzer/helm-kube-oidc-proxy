@@ -25,7 +25,6 @@ spec:
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy | quote }}
           command:
             - kube-oidc-proxy
-            - --secure-port=443
             - --oidc-ca-file=/etc/ssl/certs/ca-certificates.crt
             - "--oidc-issuer-url={{ .Values.oidc.issuer }}"
             - "--oidc-client-id={{ .Values.oidc.clientID }}"
@@ -56,4 +55,4 @@ spec:
             - name: metrics
               containerPort: 8080
             - name: https
-              containerPort: 443
+              containerPort: 6443
