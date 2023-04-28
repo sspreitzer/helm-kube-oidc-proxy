@@ -114,3 +114,4 @@ users:
 * https://www.tremolosecurity.com/post/updating-kube-oidc-proxy
 * https://github.com/Azure/AKS/issues/2861
 * https://github.com/Azure/AKS/issues/2861#issuecomment-1433382599
+* https://github.com/Azure/AKS/issues/2861#issuecomment-1527557548
