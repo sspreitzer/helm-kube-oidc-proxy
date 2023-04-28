@@ -44,7 +44,7 @@ ingress:
     - k.mycluster.k8s.example.com
 ```
 
-kubeconfig Example
+kubeconfig Example with [kube-login](https://github.com/int128/kubelogin)
 
 ```yaml
 apiVersion: v1
@@ -77,7 +77,7 @@ users:
 
 ## Remarks
 
-`kube-oidc-proxy` does not support setting an OIDC. This Helm Chart enforces using TLS on the ingress, if enabled.
+`kube-oidc-proxy` does not support setting an OIDC client secret. This Helm Chart enforces using TLS on the ingress, if enabled.
 
 ## Helm Chart Values
 
