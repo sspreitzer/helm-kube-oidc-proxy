@@ -1,5 +1,5 @@
 oidc:
-  issuer: id.example.com/auth/realms/master
+  issuer: https://id.example.com/auth/realms/master
   clientID: kubernetes
   usernameClaim: preferred_username
   groupsClaim: groups
@@ -34,5 +34,3 @@ ingress:
   hosts:
     - api.kubernetes.example.com
   tlsSecret: null
-
-verbosity: null

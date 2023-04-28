@@ -46,9 +46,6 @@ spec:
             {{- range .Values.oidc.requiredClaims }}
             - "--oidc-required-claim={{ . }}"
             {{- end }}
-            {{- if .Values.verbosity }}
-            - "--v={{ .Values.verbosity }}"
-            {{- end }}
           resources: {{ toYaml .Values.deployment.resources | nindent 12 }}
           readinessProbe:
             httpGet:
