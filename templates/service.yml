@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: "{{ .Release.Name }}-{{ .Chart.Name }}"
   {{- if .Values.service.annotations }}
-  annotation: {{ toYaml .Values.service.annotations | nindent 4 }}
+  annotations: {{ toYaml .Values.service.annotations | nindent 4 }}
   {{- end }}
 spec:
   type: {{ .Values.service.type | quote }}
