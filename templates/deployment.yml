@@ -28,6 +28,14 @@ spec:
                 path: cert.pem
               - key: tls.key
                 path: key.pem
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}"
           image: {{ .Values.deployment.image.name | quote }}

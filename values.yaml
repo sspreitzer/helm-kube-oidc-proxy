@@ -34,3 +34,8 @@ ingress:
   hosts:
     - api.kubernetes.example.com
   tlsSecret: null
+  ingressClassName: null
+
+affinity: {}
+
+tolerations: []
