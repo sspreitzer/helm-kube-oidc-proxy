@@ -23,3 +23,9 @@ rules:
   verbs:
   - "create"
   - "impersonate"
+- apiGroups:
+    - "authorization.k8s.io"
+  resources:
+    - "subjectaccessreviews"
+  verbs:
+    - "create"
