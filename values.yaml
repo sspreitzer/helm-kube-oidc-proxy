@@ -39,3 +39,8 @@ ingress:
 affinity: {}
 
 tolerations: []
+
+podDisruptionBudget:
+  enabled: false
+  minAvailable:
+  maxUnavailable:
