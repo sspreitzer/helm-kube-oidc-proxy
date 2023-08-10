@@ -12,6 +12,7 @@ deployment:
   image:
     name: docker.io/tremolosecurity/kube-oidc-proxy:latest
     pullPolicy: Always
+    pullSecrets: []
   replicas: 2
   strategy:
     type: RollingUpdate

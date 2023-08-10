@@ -13,6 +13,9 @@ spec:
       labels:
         app: "{{ .Release.Name }}-{{ .Chart.Name }}"
     spec:
+      {{- if .Values.deployment.image.pullSecrets }}
+      imagePullSecrets: {{ toYaml .Values.deployment.image.pullSecrets | nindent 6 }}
+      {{- end }}
       serviceAccountName: "{{ .Release.Name }}-{{ .Chart.Name }}"
       securityContext:
         fsGroup: 65534
