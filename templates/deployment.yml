@@ -43,7 +43,7 @@ spec:
       {{- end }}
       containers:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}"
-          image: {{ .Values.deployment.image.name | quote }}
+          image: "{{ .Values.deployment.image.registry }}/{{ .Values.deployment.image.repository }}/{{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy | quote }}
           command:
             - kube-oidc-proxy

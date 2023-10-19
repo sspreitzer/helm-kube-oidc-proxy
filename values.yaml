@@ -10,8 +10,11 @@ oidc:
 
 deployment:
   image:
-    name: docker.io/tremolosecurity/kube-oidc-proxy:latest
-    pullPolicy: Always
+    registry: docker.io
+    repository: tremolosecurity
+    name: kube-oidc-proxy
+    tag: null
+    pullPolicy: IfNotPresent
     pullSecrets: []
   replicas: 2
   strategy:
