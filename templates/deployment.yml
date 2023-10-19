@@ -22,6 +22,8 @@ spec:
         runAsGroup: 65534
         runAsNonRoot: true
         runAsUser: 65534
+        seccompProfile:
+          type: RuntimeDefault
       volumes:
         - name: kube-oidc-proxy-tls
           secret:
@@ -58,6 +60,17 @@ spec:
             - "--oidc-required-claim={{ . }}"
             {{- end }}
           resources: {{ toYaml .Values.deployment.resources | nindent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            privileged: false
+            runAsGroup: 65534
+            runAsNonRoot: true
+            runAsUser: 65534
+            seccompProfile:
+              type: RuntimeDefault
           readinessProbe:
             httpGet:
               path: /ready
