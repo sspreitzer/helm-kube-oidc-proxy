@@ -9,7 +9,7 @@ Kubernetes cluster-admin privileges are needed to install this Helm Chart as it 
 ## Install the Helm Chart
 
 ```shell
-helm upgrade kube-oidc-proxy oci://registry.spreitzer.ch/charts/ara --install --create-namespace --namespace kube-oidc-proxy --values custom_values.yml
+helm upgrade kube-oidc-proxy oci://registry.spreitzer.ch/charts/kube-oidc-proxy --install --create-namespace --namespace kube-oidc-proxy --values custom_values.yml
 ```
 
 ## Helm Chart Configuration Examples
