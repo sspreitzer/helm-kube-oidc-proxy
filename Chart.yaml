@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kube-oidc-proxy
-version: 1.5.0
+version: 1.6.0
 description: Helm Chart for kube-oidc-proxy
 keywords:
   - kubernetes
@@ -16,4 +16,4 @@ maintainers:
     email: sascha@spreitzer.ch
     url: https://github.com/sspreitzer
 icon: https://kubernetes.io/images/favicon.png
-appVersion: 1.0.5
+appVersion: 1.0.9
