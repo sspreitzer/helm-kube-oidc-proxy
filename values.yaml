@@ -48,3 +48,7 @@ podDisruptionBudget:
   enabled: false
   minAvailable:
   maxUnavailable:
+
+extraVolumeMounts: {}
+
+extraVolumes: {}

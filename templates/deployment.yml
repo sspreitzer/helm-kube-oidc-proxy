@@ -33,6 +33,7 @@ spec:
                 path: cert.pem
               - key: tls.key
                 path: key.pem
+        {{- if .Values.extraVolumes }}{{ toYaml .Values.extraVolumes | trim | nindent 8 }}{{ end }}
       {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
@@ -92,3 +93,4 @@ spec:
             - name: kube-oidc-proxy-tls
               mountPath: /etc/oidc/tls
               readOnly: true
+            {{- if .Values.extraVolumeMounts }}{{ toYaml .Values.extraVolumeMounts | trim | nindent 12 }}{{ end }}
